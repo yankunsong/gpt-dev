@@ -1,6 +1,15 @@
 import type { ChatRequest, ChatReponse } from "./api/openai/typing";
 import { Message, ModelConfig, useAccessStore, useChatStore } from "./store";
 import { showToast } from "./components/ui-lib";
+import AWS from "aws-sdk";
+
+AWS.config.update({
+  accessKeyId: "",
+  secretAccessKey: "",
+  region: "us-east-1",
+});
+
+const dynamodb = new AWS.DynamoDB.DocumentClient();
 
 const TIME_OUT_MS = 30000;
 
@@ -9,7 +18,7 @@ const makeRequestParam = (
   options?: {
     filterBot?: boolean;
     stream?: boolean;
-  }
+  },
 ): ChatRequest => {
   let sendMessages = messages.map((v) => ({
     role: v.role,
@@ -64,6 +73,29 @@ export async function requestChat(messages: Message[]) {
 
   try {
     const response = (await res.json()) as ChatReponse;
+    console.log("In requestChat function");
+    const accessStore = useAccessStore.getState();
+    console.log(`User Code is ${accessStore.accessCode}`);
+    console.log(process.env.AWS_ID);
+    // dynamo part
+    const params = {
+      TableName: "gptUsers",
+      Key: {
+        access_code: "dong",
+      },
+      UpdateExpression: "set balance = balance - :val",
+      ExpressionAttributeValues: { ":val": 2 },
+      ReturnValues: "UPDATED_NEW",
+    };
+
+    dynamodb.update(params, (err, data) => {
+      if (err) {
+        console.log("Error updating item: ", err);
+      } else {
+        console.log("Updated item: ", data.Attributes);
+      }
+    });
+
     return response;
   } catch (error) {
     console.error("[Request Chat] ", error, res.body);
@@ -84,7 +116,7 @@ export async function requestUsage() {
 
   const [used, subs] = await Promise.all([
     requestOpenaiClient(
-      `dashboard/billing/usage?start_date=${startDate}&end_date=${endDate}`
+      `dashboard/billing/usage?start_date=${startDate}&end_date=${endDate}`,
     )(null, "GET"),
     requestOpenaiClient("dashboard/billing/subscription")(null, "GET"),
   ]);
@@ -124,7 +156,7 @@ export async function requestChatStream(
     onMessage: (message: string, done: boolean) => void;
     onError: (error: Error, statusCode?: number) => void;
     onController?: (controller: AbortController) => void;
-  }
+  },
 ) {
   const req = makeRequestParam(messages, {
     stream: true,
@@ -213,7 +245,7 @@ export const ControllerPool = {
   addController(
     sessionIndex: number,
     messageId: number,
-    controller: AbortController
+    controller: AbortController,
   ) {
     const key = this.key(sessionIndex, messageId);
     this.controllers[key] = controller;
