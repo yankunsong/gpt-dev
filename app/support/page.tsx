@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import img from "../../public/favicon-32x32.png";
 export default function App() {
   return (
     <>
@@ -11,7 +11,7 @@ export default function App() {
         src="https://s1.imagehub.cc/images/2023/04/10/3816d1d91252c624d30bbd7102b140d0.jpeg"
         alt="3816d1d91252c624d30bbd7102b140d0.jpeg"
       />
-      <Image src="../../public/favicon-32x32.png" alt="Example Image" />
+      <Image src={img} alt="Example Image" />
     </>
   );
 }
