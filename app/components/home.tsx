@@ -218,14 +218,7 @@ export function Home() {
 
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <ErrorBoundary>
-              <_Home></_Home>
-            </ErrorBoundary>
-          }
-        />
+        <Route path="/" element={<_Home></_Home>} />
         <Route path="support" element={<Support />} />
       </Routes>
     </BrowserRouter>
