@@ -25,7 +25,7 @@ import dynamic from "next/dynamic";
 import { REPO_URL } from "../constant";
 import { ErrorBoundary } from "./error";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Support from "./Support";
 
 export function Loading(props: { noLogo?: boolean }) {
@@ -201,19 +201,33 @@ function _Home() {
 
 export function Home() {
   return (
-    <Router>
-      <div>
-        <Switch>
-          <Route path="/support">
-            <Support />
-          </Route>
-          <Route path="/">
+    // <Router>
+    //   <div>
+    //     <Switch>
+    //       <Route path="/support">
+    //         <Support />
+    //       </Route>
+    //       <Route path="/">
+    //         <ErrorBoundary>
+    //           <_Home></_Home>
+    //         </ErrorBoundary>
+    //       </Route>
+    //     </Switch>
+    //   </div>
+    // </Router>
+
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
             <ErrorBoundary>
               <_Home></_Home>
             </ErrorBoundary>
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+          }
+        />
+        <Route path="/support" element={<Support />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
