@@ -12,6 +12,7 @@ export default function App() {
         alt="3816d1d91252c624d30bbd7102b140d0.jpeg"
       />
       <Image src={img} alt="Example Image" />
+      <Image src="favicon-16x16.png" alt="123" />
     </>
   );
 }
