@@ -201,6 +201,9 @@ function _Home() {
 
 export function Home() {
   return (
+    <ErrorBoundary>
+      <_Home></_Home>
+    </ErrorBoundary>
     // <Router>
     //   <div>
     //     <Switch>
@@ -216,11 +219,11 @@ export function Home() {
     //   </div>
     // </Router>
 
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<_Home></_Home>} />
-        <Route path="support" element={<Support />} />
-      </Routes>
-    </BrowserRouter>
+    // <BrowserRouter>
+    //   <Routes>
+    //     <Route path="/" element={<_Home></_Home>} />
+    //     <Route path="support" element={<Support />} />
+    //   </Routes>
+    // </BrowserRouter>
   );
 }
