@@ -226,7 +226,7 @@ export function Home() {
             </ErrorBoundary>
           }
         />
-        <Route path="/support" element={<Support />} />
+        <Route path="support" element={<Support />} />
       </Routes>
     </BrowserRouter>
   );
