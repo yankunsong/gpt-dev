@@ -1,11 +1,19 @@
 import Image from "next/image";
 import React, { useState } from "react";
+import { useClient } from "next/client";
 
 export default function App() {
+  const isClient = useClient();
   const [showText, setShowText] = useState(false);
+
   const handleButtonClick = () => {
     setShowText(true);
   };
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <>
       <div>
