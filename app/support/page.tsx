@@ -3,10 +3,13 @@
 import Image from "next/image";
 import React, { useState } from "react";
 import "./styles.scss";
+import logToServer from "../api/logger";
 
 export default function App() {
   const [showText, setShowText] = useState(false);
   const handleButtonClick = () => {
+    console.log("Expected log to client console");
+    logToServer("Expected log to server console");
     setShowText(!showText);
   };
   const A = 20;
