@@ -1,72 +1,83 @@
-html,
+$font-color: #4a4a4a;
+$background-color: #f3f3f3;
+$button-color: #8db4c4;
+$button-hover-color: #6a9caf;
+$progress-bar-color: #8db4c4;
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f0f8ff; // AliceBlue background for a chill atmosphere
+font-family: sans-serif;
+background-color: $background-color;
+color: $font-color;
+font-weight: 300;
+line-height: 1.6;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  min-height: 100vh;
-  // padding: 20px;
-  box-sizing: border-box;
+display: flex;
+flex-direction: column;
+align-items: center;
+max-width: 800px;
+margin: 0 auto;
+padding: 2rem;
 }
 
 .text-container,
 .progress-container,
 .image-container,
 .hidden-text-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  // margin-bottom: 20px;
-  width: 100%;
+margin: 2rem 0;
+text-align: center;
 }
 
-.text-container p,
-.hidden-text-container p {
-  color: #4682b4; // SteelBlue for a chill vibe
+button {
+background-color: $button-color;
+color: white;
+font-weight: 400;
+padding: 0.5rem 1rem;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+transition: background-color 0.3s;
+
+&:hover {
+background-color: $button-hover-color;
+}
 }
 
-.progress-container p {
-  color: #778899; // LightSlateGray for a cool feel
+progress {
+width: 100%;
+height: 1rem;
+border: none;
+background-color: $background-color;
+-webkit-appearance: none;
+appearance: none;
+
+&::-webkit-progress-bar {
+background-color: $background-color;
 }
 
-.progress-container progress {
-  width: 20%;
-  background-color: #e0ffff; // LightCyan for a chill touch
+&::-webkit-progress-value {
+background-color: $progress-bar-color;
 }
 
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 4px; // Slightly rounded corners for a softer appearance
+&::-moz-progress-bar {
+background-color: $progress-bar-color;
+}
 }
 
-.hidden-text-container button {
-  background-color: #4682b4; // SteelBlue for a chill vibe
-  color: white;
-  font-size: 14px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease; // Smooth transition for a chill feel
+.image {
+width: 100%;
+max-width: 300px;
+height: auto;
 }
 
-.hidden-text-container button:hover {
-  background-color: #36648b; // Darker SteelBlue when hovered
+.hidden-text-container {
+p {
+display: none;
+}
 }
 
-#my-progress-bar {
-  height: 20px; /* set the height to 20 pixels */
-  background-color: #add8e6; /* set the background color to yellow */
-  color: #006699; /* set the color of the progress bar to red */
-}
+
+
+
+
