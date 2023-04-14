@@ -76,35 +76,31 @@
 // display: none;
 // }
 // }
-body {
+
+.container {
   display: flex;
   flex-direction: column;
 
-  .container {
-    display: flex;
-    flex-direction: column;
+  .text-container {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
 
-    .text-container {
-      font-size: 1.2rem;
-      line-height: 1.5;
-    }
+  .progress-container {
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
 
-    .progress-container {
-      font-size: 1.2rem;
-      line-height: 1.5;
+  .image-container {
+    img {
+      max-width: 100%;
+      height: auto;
     }
+  }
 
-    .image-container {
-      img {
-        max-width: 100%;
-        height: auto;
-      }
-    }
-
-    .hidden-text-container {
-      font-size: 1.2rem;
-      line-height: 1.5;
-    }
+  .hidden-text-container {
+    font-size: 1.2rem;
+    line-height: 1.5;
   }
 }
 
