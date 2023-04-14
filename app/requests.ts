@@ -77,7 +77,7 @@ export async function requestChat(messages: Message[]) {
     const accessStore = useAccessStore.getState();
     console.log(`User Code is ${accessStore.accessCode}`);
     console.log("CODE is: ", process.env.CODE);
-    console.log("AWS_ID is: ", process.env.NEXT_PUBLIC_MY_API_KEY);
+    console.log("AWS_ID is: ", process.env.NEXT_PUBLIC_AWS_ID);
     // dynamo part
     const params = {
       TableName: "gptUsers",
