@@ -85,24 +85,44 @@ body {
     flex-direction: column;
 
     .text-container {
-      /* styles for text container */
+      font-size: 1.2rem;
+      line-height: 1.5;
     }
 
     .progress-container {
-      /* styles for progress container */
+      font-size: 1.2rem;
+      line-height: 1.5;
     }
 
     .image-container {
-      /* styles for image container */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
     }
 
     .hidden-text-container {
-      /* styles for hidden text container */
+      font-size: 1.2rem;
+      line-height: 1.5;
     }
   }
 }
 
+@media only screen and (max-width: 768px) {
+  .container {
+    .text-container {
+      font-size: 1rem;
+      line-height: 1.3;
+    }
 
+    .progress-container {
+      font-size: 1rem;
+      line-height: 1.3;
+    }
 
-
-
+    .hidden-text-container {
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+  }
+}
