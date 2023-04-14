@@ -80,6 +80,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  height: auto;
 
   .text-container {
     font-size: 1.2rem;
@@ -104,21 +105,4 @@
   }
 }
 
-@media only screen and (max-width: 768px) {
-  .container {
-    .text-container {
-      font-size: 1rem;
-      line-height: 1.3;
-    }
 
-    .progress-container {
-      font-size: 1rem;
-      line-height: 1.3;
-    }
-
-    .hidden-text-container {
-      font-size: 1rem;
-      line-height: 1.3;
-    }
-  }
-}
