@@ -1,9 +1,9 @@
-"use client";
+import logToServer from "../api/logger";
+("use client");
 
 import Image from "next/image";
 import React, { useState } from "react";
 import "./styles.scss";
-import logToServer from "../api/logger";
 
 export default function App() {
   const [showText, setShowText] = useState(false);
