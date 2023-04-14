@@ -16,6 +16,7 @@ RUN apk update && apk add --no-cache git
 
 ENV OPENAI_API_KEY=""
 ENV CODE=""
+ENV NEXT_PUBLIC_AWS_ID=""
 ARG DOCKER=true
 
 WORKDIR /app
@@ -29,6 +30,7 @@ WORKDIR /app
 
 ENV OPENAI_API_KEY=""
 ENV CODE=""
+ENV NEXT_PUBLIC_AWS_ID=""
 
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
