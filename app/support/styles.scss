@@ -87,22 +87,26 @@
   .text-container {
     font-size: 1.2rem;
     line-height: 1.5;
+    margin: auto;
   }
 
   .progress-container {
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 3;
+    margin: auto;
   }
 
   .image-container {
     img {
       max-width: 100%;
       height: auto;
+      margin: auto;
     }
   }
 
   .hidden-text-container {
     font-size: 1.2rem;
     line-height: 1.5;
+    margin: auto;
   }
 }
