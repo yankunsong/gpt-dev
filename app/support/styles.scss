@@ -1,80 +1,105 @@
-$font-color: #4a4a4a;
-$background-color: #f3f3f3;
-$button-color: #8db4c4;
-$button-hover-color: #6a9caf;
-$progress-bar-color: #8db4c4;
+// $font-color: #4a4a4a;
+// $background-color: #f3f3f3;
+// $button-color: #8db4c4;
+// $button-hover-color: #6a9caf;
+// $progress-bar-color: #8db4c4;
 
+// body {
+// font-family: sans-serif;
+// background-color: $background-color;
+// color: $font-color;
+// font-weight: 300;
+// line-height: 1.6;
+// }
+
+// .container {
+// display: flex;
+// flex-direction: column;
+// align-items: center;
+// max-width: 800px;
+// margin: 0 auto;
+// padding: 2rem;
+// }
+
+// .text-container,
+// .progress-container,
+// .image-container,
+// .hidden-text-container {
+// margin: 2rem 0;
+// text-align: center;
+// }
+
+// button {
+// background-color: $button-color;
+// color: white;
+// font-weight: 400;
+// padding: 0.5rem 1rem;
+// border: none;
+// border-radius: 4px;
+// cursor: pointer;
+// transition: background-color 0.3s;
+
+// &:hover {
+// background-color: $button-hover-color;
+// }
+// }
+
+// progress {
+// width: 100%;
+// height: 1rem;
+// border: none;
+// background-color: $background-color;
+// -webkit-appearance: none;
+// appearance: none;
+
+// &::-webkit-progress-bar {
+// background-color: $background-color;
+// }
+
+// &::-webkit-progress-value {
+// background-color: $progress-bar-color;
+// }
+
+// &::-moz-progress-bar {
+// background-color: $progress-bar-color;
+// }
+// }
+
+// .image {
+// width: 100%;
+// max-width: 300px;
+// height: auto;
+// }
+
+// .hidden-text-container {
+// p {
+// display: none;
+// }
+// }
 body {
-font-family: sans-serif;
-background-color: $background-color;
-color: $font-color;
-font-weight: 300;
-line-height: 1.6;
-}
+  display: flex;
+  flex-direction: column;
 
-.container {
-display: flex;
-flex-direction: column;
-align-items: center;
-max-width: 800px;
-margin: 0 auto;
-padding: 2rem;
-}
+  .container {
+    display: flex;
+    flex-direction: column;
 
-.text-container,
-.progress-container,
-.image-container,
-.hidden-text-container {
-margin: 2rem 0;
-text-align: center;
-}
+    .text-container {
+      /* styles for text container */
+    }
 
-button {
-background-color: $button-color;
-color: white;
-font-weight: 400;
-padding: 0.5rem 1rem;
-border: none;
-border-radius: 4px;
-cursor: pointer;
-transition: background-color 0.3s;
+    .progress-container {
+      /* styles for progress container */
+    }
 
-&:hover {
-background-color: $button-hover-color;
-}
-}
+    .image-container {
+      /* styles for image container */
+    }
 
-progress {
-width: 100%;
-height: 1rem;
-border: none;
-background-color: $background-color;
--webkit-appearance: none;
-appearance: none;
-
-&::-webkit-progress-bar {
-background-color: $background-color;
-}
-
-&::-webkit-progress-value {
-background-color: $progress-bar-color;
-}
-
-&::-moz-progress-bar {
-background-color: $progress-bar-color;
-}
-}
-
-.image {
-width: 100%;
-max-width: 300px;
-height: auto;
-}
-
-.hidden-text-container {
-p {
-display: none;
-}
+    .hidden-text-container {
+      /* styles for hidden text container */
+    }
+  }
 }
 
 
