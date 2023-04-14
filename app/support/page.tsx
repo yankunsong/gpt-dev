@@ -33,9 +33,9 @@ export default function App() {
         </p>
       </div>
       <div className="progress-container">
-        <p>
+        <text>
           目前进度: {A}/{B}
-        </p>
+        </text>
         <progress id="my-progress-bar" value={A} max={B}></progress>
       </div>
       <div className="image-container">
