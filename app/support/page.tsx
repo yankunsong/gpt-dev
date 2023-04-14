@@ -10,7 +10,7 @@ export default function App() {
     setShowText(!showText);
   };
   const A = 20;
-  const B = 140;
+  const B = 20 * 7;
   return (
     <div className="container">
       <div className="text-container">
@@ -27,8 +27,8 @@ export default function App() {
         <Image src="wechat.jpeg" alt="123" className="image" />
       </div>
       <div className="hidden-text-container">
-        {showText && <p>Here is some hidden text that is now revealed!</p>}
-        <button onClick={handleButtonClick}>Show hidden text</button>
+        {showText && <p>当前密码: dong1</p>}
+        <button onClick={handleButtonClick}>查看访问密码</button>
       </div>
     </div>
   );
