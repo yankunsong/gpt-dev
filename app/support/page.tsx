@@ -2,14 +2,47 @@
 
 import Image from "next/image";
 import React, { useState } from "react";
+import AWS from "aws-sdk";
 import "./styles.scss";
+
+const dynamodb = new AWS.DynamoDB({
+  region: "us-east-1",
+  accessKeyId: process.env.NEXT_PUBLIC_AWS_ID,
+  secretAccessKey: process.env.NEXT_PUBLIC_AWS_SECRET,
+});
+
+const updateDB = async () => {
+  const params = {
+    TableName: "user_cnt_test",
+    Key: {
+      started_date: { S: "04/14" },
+    },
+    UpdateExpression: "SET #count = #count + :incr",
+    ExpressionAttributeNames: {
+      "#count": "cnt",
+    },
+    ExpressionAttributeValues: {
+      ":incr": { N: "1" },
+    },
+    ReturnValues: "UPDATED_NEW",
+  };
+
+  try {
+    const data = await dynamodb.updateItem(params).promise();
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export default function App() {
   const [showText, setShowText] = useState(false);
+
   const handleButtonClick = () => {
-    console.log("Expected log to client console");
-    setShowText(!showText);
+    if (showText) return;
+    setShowText(true);
+    updateDB();
   };
+
   const A = 20;
   const B = 30 * 7;
   return (
