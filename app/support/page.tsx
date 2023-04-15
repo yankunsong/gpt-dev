@@ -12,25 +12,21 @@ const dynamodb = new AWS.DynamoDB({
 });
 
 const updateDB = async () => {
+  const now = new Date().toLocaleString("en-US", {
+    timeZone: "America/New_York",
+  });
   const params = {
-    TableName: "user_cnt_test",
-    Key: {
-      started_date: { S: "04/14" },
+    TableName: "user_click_test",
+    Item: {
+      click_time: { S: now },
     },
-    UpdateExpression: "SET #count = #count + :incr",
-    ExpressionAttributeNames: {
-      "#count": "cnt",
-    },
-    ExpressionAttributeValues: {
-      ":incr": { N: "1" },
-    },
-    ReturnValues: "UPDATED_NEW",
   };
 
   try {
-    const data = await dynamodb.updateItem(params).promise();
+    const data = await dynamodb.putItem(params).promise();
+    console.log("New click counted");
   } catch (error) {
-    console.log(error);
+    console.error("Error adding new click item:", error);
   }
 };
 
